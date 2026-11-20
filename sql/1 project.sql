@@ -3,7 +3,7 @@ SELECT count(*) сумма заказов
 FROM orders;
 
 
-SELECT * FROM orders LIMIT 10;     10 первых значений
+SELECT * FROM orders LIMIT 10;     --10 первых значений
 SELECT * FROM order_items LIMIT 10;
 
 
@@ -20,14 +20,14 @@ sum(o_i.price)
 from orders as o
 inner join order_items as o_i
 on o.order_id=o_i.order_id
-where o.order_status = 'delivered'
+where o.order_status = 'delivered';
 
 
 Select sum(o_i.price)/COUNT(DISTINCT o.order_id) as average_check 
 from orders as o
 inner join order_items as o_i   --средний чек
 on o.order_id=o_i.order_id
-where o.order_status = 'delivered'
+where o.order_status = 'delivered';
 
 
 Select DATE_TRUNC('month', o.order_purchase_timestamp) as month,--(перевод в месяцы),
@@ -43,7 +43,7 @@ order by month;
 Select DATE_TRUNC('month', o.order_purchase_timestamp) as month,
 sum(o_i.price) as total_sales
 from orders as o
-inner join order_items as o_i     топ 5 месяцев по продажам
+inner join order_items as o_i     --топ 5 месяцев по продажам
 on o.order_id=o_i.order_id 
 where o.order_status = 'delivered'
 group by month
@@ -51,12 +51,12 @@ order by total_sales desc LIMIT 5;
 
 
 
-SELECT * FROM products LIMIT 5;  5 названий товаров
+SELECT * FROM products LIMIT 5;  --5 названий товаров
 SELECT * FROM category_translation LIMIT 5;
 
 
 SELECT 'products' AS table_name, COUNT(*) AS total_rows
-FROM products   сумма всего
+FROM products   --сумма всего
 UNION ALL
 SELECT 'category_translation', COUNT(*)
 FROM category_translation;
@@ -66,7 +66,7 @@ Select ct.product_category_name_english as English_name,sum(o_i.price) as total_
 from orders as o
 inner join order_items as o_i
 on o.order_id=o_i.order_id
-inner join products as p         объединение 4 табл
+inner join products as p         --объединение 4 табл
 on o_i.product_id=p.product_id
 inner join category_translation as ct
 on p.product_category_name=ct.product_category_name
@@ -78,7 +78,7 @@ order by sum(o_i.price) desc limit 10;
 Select DATE_TRUNC('month', o.order_purchase_timestamp) as month,
 count(DISTINCT o.order_id) as total_orders
 from orders as o
-inner join order_items as o_i     топ заказов по месяцам
+inner join order_items as o_i     --топ заказов по месяцам
 on o.order_id=o_i.order_id 
 where o.order_status = 'delivered'
 group by month
@@ -86,7 +86,7 @@ order by month asc;
 
 
 Select order_status,COUNT(*) AS total_orders
-from orders as o       сумма по месяцам
+from orders as o       --сумма по месяцам
 group by order_status
 order by total_orders desc;
 
