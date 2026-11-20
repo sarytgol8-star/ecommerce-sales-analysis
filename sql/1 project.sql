@@ -1,5 +1,5 @@
 
-SELECT count(*) сумма заказов
+SELECT count(*) as total_orders --сумма заказов
 FROM orders;
 
 
