@@ -93,38 +93,34 @@
 
 
 
-SELECT
-    ROUND(SUM(oi.price), 2) AS total_sales,
+--SELECT
+    --ROUND(SUM(oi.price), 2) AS total_sales,
 
-    ROUND(
-        SUM(
-            CASE
-                WHEN ct.product_category_name_english IS NOT NULL
-                THEN oi.price
-                ELSE 0
-            END
-        ), 2
-    ) AS categorized_sales,
+    --ROUND(
+        --SUM(
+            --CASE
+               -- WHEN ct.product_category_name_english IS NOT NULL
+                --THEN oi.price
+               -- ELSE 0
+           -- END
+        --), 2
+   -- ) AS categorized_sales,
 
-    ROUND(
-        SUM(
-            CASE
-                WHEN ct.product_category_name_english IS NULL
-                THEN oi.price
-                ELSE 0
-            END
-        ), 2
-    ) AS missing_sales
+   -- ROUND(
+   --     SUM(
+           -- CASE
+            --    WHEN ct.product_category_name_english IS NULL
+            --    THEN oi.price
+            --    ELSE 0
+         --   END
+      --  ), 2
+   -- ) AS missing_sales
+--FROM orders AS o
+--INNER JOIN order_items AS oi
+--ON o.order_id = oi.order_id
+--LEFT JOIN products AS p
+--ON oi.product_id = p.product_id
 
-FROM orders AS o
-
-INNER JOIN order_items AS oi
-    ON o.order_id = oi.order_id
-
-LEFT JOIN products AS p
-    ON oi.product_id = p.product_id
-
-LEFT JOIN category_translation AS ct
-    ON p.product_category_name = ct.product_category_name
-
-WHERE o.order_status = 'delivered';
+--LEFT JOIN category_translation AS ct
+--ON p.product_category_name = ct.product_category_name
+--WHERE o.order_status = 'delivered';
