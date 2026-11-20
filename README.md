@@ -9,9 +9,9 @@ The goal is to explore sales performance, order trends, product categories, and 
 
 ## Tools Used
 
-- **PostgreSQL** — data storage and analysis
-- **SQL** — data querying, joins, and aggregations
-- **Power BI** — dashboard creation and visualization
+- **PostgreSQL** - data storage and analysis
+- **SQL** - data querying, joins, and aggregations
+- **Power BI** - dashboard creation and visualization
 
 ## Key Metrics
 
@@ -44,8 +44,8 @@ The goal is to explore sales performance, order trends, product categories, and 
 
 ## Project Files
 
-- `sql/` — SQL queries used for the analysis
-- `dashboard/` — Power BI report and dashboard screenshot
+- `sql/` - SQL queries used for the analysis
+- `dashboard/` - Power BI report and dashboard screenshot
 
 ## Dashboard
 
