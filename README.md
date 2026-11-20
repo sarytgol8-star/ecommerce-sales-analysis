@@ -50,3 +50,5 @@ The goal is to explore sales performance, order trends, product categories, and 
 ## Dashboard
 
 The interactive report was developed in Power BI and includes sales KPIs, monthly trends, category rankings, and order status analysis.
+![Power BI Dashboard](dashboard/project1.png)
+
